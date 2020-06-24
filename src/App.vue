@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view />
+    <tab-bar>
+      <tab-bar-item path="/home">
+        <img slot="item-icon" src="./assets/img/tabbar/icon_home_off.png">
+        <img slot="item-icon-active" src="./assets/img/tabbar/icon_home_on.png">
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+      <tab-bar-item path="/hot">
+        <img slot="item-icon" src="./assets/img/tabbar/icon_hot_off.png">
+        <img slot="item-icon-active" src="./assets/img/tabbar/icon_hot_on.png">
+        <div slot="item-text">热门</div>
+      </tab-bar-item>
+      <tab-bar-item path="/msg">
+        <img slot="item-icon" src="./assets/img/tabbar/icon_msg_off.png">
+        <img slot="item-icon-active" src="./assets/img/tabbar/icon_msg_on.png">
+        <div slot="item-text">消息</div>
+      </tab-bar-item>
+      <tab-bar-item path="/user">
+        <img slot="item-icon" src="./assets/img/tabbar/icon_user_off.png">
+        <img slot="item-icon-active" src="./assets/img/tabbar/icon_user_on.png">
+        <div slot="item-text">我的</div>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import TabBar from './components/tabbar/TabBar'
+  import TabBarItem from './components/tabbar/TabBarItem'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      TabBar,
+      TabBarItem
+    }
   }
-}
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('./assets/css/base.less');
+  
 </style>
